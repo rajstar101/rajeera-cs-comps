@@ -1,0 +1,166 @@
+Tips:
+
+- if you know a command, but don’t know how to use it, try the manual (man page) by entering man <command>
+- if there is no man page, the command might be a shell built-in. In that case use the “help <X>” command
+- google search
+
+level 0:
+#################
+- recommended commands: ls , cd , cat , file , du , find
+-- ls: list directory
+-- cd: choose directory
+-- cat: concatenate
+-- file: determine file type
+-- du: estimate file space usage
+-- find: search for files in a directory hierarchy
+
+notes:
+- ssh username@<IP> -p <PORT>
+- to logout of ssh say exit or logout
+
+password:
+ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+
+#################
+level 1:
+#################
+
+- recommended commands: ls , cd , cat , file , du , find
+
+notes:
+- to access files/directories with hidden names like "-", you have to use ./-, . represents home directory
+
+password:
+263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+
+#################
+level 2:
+#################
+
+- recommended commands: ls , cd , cat , file , du , find
+
+notes:
+- if a file name has spaces use " " to encapsulate the whole file
+
+password:
+MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+
+#################
+level 3:
+###########
+
+- recommended commands: ls , cd , cat , file , du , find
+
+notes:
+- us ls -a to find all files
+
+password:
+2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+
+#################
+level 4:
+##############
+
+same recommended commands
+
+note:
+- you can use reset or control-H to clear your terminal
+
+password:
+4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+
+#################
+level 5:
+###############
+
+- same recommended files
+
+notes:
+- they all are all not executable
+./maybehere07/.file2 - only one with 1033 bytes
+
+password:
+HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+
+#################
+level 6:
+#################
+
+grep, egrep, fgrep, rgrep - print lines that match patterns
+
+find / -type f -size 33c -user bandit7 2/dev/null
+/ : makes you look at the root directory
+2/dev/null : 2 :: refers to error messages /dev/null ::redirects all the data to a black all
+
+password:
+morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+#################
+level 7:
+#################
+
+recommended commands:
+man, grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
+
+notes:
+- grep prints out the whole line:
+
+password:
+dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+#################
+level 8:
+#################
+
+notes:
+- uniq finds duplicates of lines that are by each other
+- uniq u removes duplicates
+
+password:
+4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+##################
+level 9:
+######################
+
+notes: using "strings <filename>" lets you see all the human readable lines and it was easy from there
+
+password:
+FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+#####################
+level 10:
+##################
+
+notes:
+using a decoder (like base64), I'm assuming (like for base64) that you use "-d" for decoding
+
+password:
+dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+
+################
+level 11:
+################
+
+notes:
+- tr command is used for translate or substitute characters
+- n is 13 letters away from a so ...
+-- lowercase: a-z -> n->za->m
+-- uppercase: A-Z -> N-ZA-M
+
+so our code should be . . .
+cat data.txt | tr 'a-z A-Z' 'n-za-m N-ZA-M'
+
+password:
+7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+
+###############
+level 12:
+###############
+
+notes:
+- xxd [options] [file] [output_file] # used for converting hexcode
+-- -r option reverses the hexdump
+-file can tell you how a file was compressed
+- I believe most of the compressing and uncompressing stuff have the same options as each otherkali
+kali

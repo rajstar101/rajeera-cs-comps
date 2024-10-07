@@ -1,0 +1,177 @@
+Project About:
+
+------------------
+
+Our project involves creating a simulation tool in C to demonstrate ARP (Address Resolution Protocol) cache poisoning, a common technique used in man-in-the-middle (MITM) attacks. The simulation will manipulate ARP tables to intercept, redirect, or modify network traffic between devices in a controlled environment. The primary goal is to understand ARP protocol vulnerabilities and explore both offensive techniques and defensive measures against ARP spoofing attacks.
+
+------------------
+
+Learning Goals:
+- Gain a deeper understanding of the Address Resolution Protocol (ARP) and its role in network communication
+- Learn how ARP spoofing is executed and how it can be used to intercept or modify network traffic.
+- Develop skills in C programming for networking, including raw socket programming and packet manipulation.
+- Explore defensive measures and detection techniques to prevent ARP spoofing and other man in the middle (MITM) attacks.
+
+------------------
+
+Project Architecture:
+(split up into 4 main modules)
+
+1. Network Discovery Module:
+Responsible for scanning the local network to identify active devices using ARP requestions.
+Should output a list of IP-MAC mappings in the network
+Will need ARP request packets and socket programming
+
+2. ARP Spoofing Module:
+Implements ARP cache poisoning to alter ARP tables of targeted deices, redirecting traffic to the attackers machine.
+input IP-MAC mappings from the "network discovery module"
+Should output a modified ARP tables on target devices
+Will need raw packet manipulation and socket programming
+
+3. Packet Interception / Modification Module:
+Captures packets using a library and modifies them based on predefined rules.
+Input ARP spoofed traffic
+Output should be modified or relayed packets
+We will need a packet capture library
+
+4. (Stretch Module) Defensive Mode Module:
+Detects ARP spoofing by monitoring changes in ARP tables and notifies the user
+(we'll find out more when we get here)
+
+Testing Environment:
+We will try to first make a virtual network environment with multiple virtual machines with their own IP and MAC addresses to simulate ARP spoofing. (stretch goal) We also hope if that goals well we try it out on a phone hotspot to see if we could get it working on actual wifi.
+
+------------------
+
+Feature Goals:
+
+Core Features:
+- network discovery
+- arp spoofing
+- packet interception
+- packet modification
+- packet redirection
+- output the status of ARP tables and captured packets to a file or the command line
+
+Stretch Features:
+- defensive mode
+- GUI visulaiton
+- custom MITM scripts that users can run for more attacks once in the MITM position
+
+------------------
+
+Testing / Bench Mark Plans:
+
+Testing:
+- - - - -
+Unit Testing:
+- - - - -
+- write unit tests for individual modules such as network discovery, arp spoofing, and packet interception
+- use testing framework compatible with C to validate module functionality
+- - - - -
+Integration Testing:
+- - - - -
+- test complete ARP poisoning attack chain to ensure modules work together
+- run controlled test in a virtual network set up
+- - - - -
+Defensive Testing (stretch)
+- - - - -
+- test detection accuracy against ARP spoofing attacks
+validate alerting mechanisms when spoofing activity is detected
+
+Benchmarking:
+- - - - -
+Performance Analysis:
+- - - - -
+- measure the time taken to send ARP requests and perform ARP cache poisoning
+- calculate the average time delay introduced during packet interception
+- - - - -
+Scalability Testing:
+- - - - -
+- test with multiple devices (different scales) to evaluate the performance and stability of the tool
+- observe performance impacts as number of devices being spoofed increase
+- - - - -
+Resource Usage:
+- - - - -
+-monitor cpu, memory, and bandwidth consumption to make sure tool isn't overloading the network or system
+
+------------------
+
+Dev Schedule
+
+- - - - -
+Week 4: Environment Setup and Initial Design
+
+Tasks:
+1. set up a virtual network with multiple vms representing a local network
+2. create a makefile for building and linking project files
+3. design and document the core modules and data flow
+
+uncertainty: network setup and VM configuration might take additional time if unexpected compatibility issues arise
+- - - - -
+Week 5: Network Discovery and Basic ARP Spofing Module
+
+Tasks:
+1. implement the network discovery module to send ARP requests and capture ip-mac mappings
+2. implement a basic arp spoofing module to alter arp tables on two target devices
+3. test the arp spoofing module in the virtual environment to verify table manipulation
+
+uncertainty: correctly configure and test ARP spoofing in the virtual network could be time consuming
+- - - - -
+Week 6: Packet Interception and Modification
+
+Tasks:
+1. set up packet sniffing using libpcap or raw sockets
+2. implement basic packet inspection to capture HTTP, DNS, and other traffic
+3. add packet modification logic to alter packet contents based on specified rules
+4. test interception in the virtual environment
+
+uncertainty: understanding the structure of various packet types and effectively modifying them may require more time for research ad testing
+- - - - -
+Week 7: Defensive Mode and Advanced Testing
+
+Tasks:
+1. create a module to monitor arp tables for changes and identify arp spoofing
+2. develop an alerting mechanism to notify the user when arp spoofing is detected
+3. refine existing modules based on test results
+4. conduct integration tests to identify and resolve any issues
+
+uncertainty: accurate detection of arp spoofing and avoiding false positives may require more time for refinement and testing
+- - - - -
+Week 8: Stretch Goals and Refinement
+
+Tasks:
+1. work on a basic GUI for visualizing the network map and spoofed connections
+2. add additional mitm attack capabilities such as dns spoofing
+3. implement packet relaying logic to maintain normal network operations during the attack
+4. add logging and visualization enhancements
+
+uncertainty: GUI development in C may take way too much time then expected
+- - - - -
+Week 9: Final Testing, Benchmarking, and Documentation
+
+Tasks:
+1. conduct performance testing to measure efficiency, latency, and resource usage
+2. document each module with detailed explanations of functionality and usauge
+3. create a user guide with instructions on how to set up and run the tool
+4. prepare for the final project
+
+uncertainty: balancing time between testing, debugging, and documentation may be challenging, particularly if unresolves bugs are discovered.
+
+------------------
+
+Worries:
+
+What we are worried about most is time constraints because while we were going through our deadlines, it just seems like a to get done, but we have faith that we will get it done. Also we really hope we can get our stretch goals done, but stuff like making a GUI for C may require alot more of a time commitment then we already planned so we will probably be consistently going above time.
+
+------------------
+
+Communication and Collaboration Expectations:
+
+We have each other's phone numbers so we will just call when we have a question or text. We will meet in Aster House or Sayles every week day at 7 or 8 pm Monday - Thursday and 11 am on Sundays. We will decide based on how much work we get done when we will part ways.
+
+------------------
+
+How to Make Sure Everyone Contributes:
+
+Alot of this is based on mutual trust since we know each other and there is no way to hide from each other since we have the same social group. However just to be professional we will do a check in before we meet every time to see how we progressed. If one parties fails to meet deadlines over 3 times and isn't contributing we agreed we will go to office hours or notify you about it.

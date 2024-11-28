@@ -1,17 +1,3 @@
-/* IMPORTANT IP/MAC ADDRESSES FOR OUR MACHIENS
-My Kali machine
-- eth0: 192.168.255.128
-- ether: 00:0c:29:b6:1b:ea
-
-My Mint machine
-- ens33: 192.168.255.131
-- ether: 00:0c:29:f1:72:b0
-
-My Windows
-- Mac: 00:50:56:f2:24:c100:50:56:f2:24:c1
-*/
-
-// 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -94,7 +80,7 @@ int main(int argc, char* argv[]) {
 
     // 
     ethernet->ether_type = htons(ETHERTYPE_ARP);
-    memset(ethernet->ether_dhost, 0xff, ETH_ALEN); // 0xff broadcast to everyone; change later
+    memset(ethernet->ether_dhost, 0xff, ETH_ALEN); // 0xff broadcast to everyone
     memcpy(ethernet->ether_shost, target_mac, ETH_ALEN);
 
     arp->arp_hrd = htons(ARPHRD_ETHER);
@@ -149,7 +135,7 @@ int main(int argc, char* argv[]) {
         }
 
         printf("ARP reply sent successfully\n");
-        sleep(2); // Adjust the sleep duration as needed
+        sleep(2);
     }
 
     close(main_sock);

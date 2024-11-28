@@ -21,7 +21,7 @@ This project illustrates how an ARP poisoning attack can be executed as part of 
 ## Resources
 
 1. Project Proposal
-2. arp.c
+2. arp_poison.c
 
 ---
 
